@@ -1,9 +1,13 @@
-import * as React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
+// noinspection GraphQLUnresolvedReference
 
-import Layout from "../components/layout";
+import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 import Seo from "../components/seo";
+import MainFeaturedPost from "../components/MainFeaturedPost";
+import Grid from "@mui/material/Grid";
+import Post from "../components/Post";
+import Layout from "../components/layout";
 
 
 const SecondPage = () => {
@@ -15,7 +19,7 @@ const SecondPage = () => {
                     node {
                         id
                         slug
-                        createdAt
+                        createdAt(formatString: "Do MMMM, YYYY")
                         description {
                             description
                         }
@@ -30,35 +34,21 @@ const SecondPage = () => {
     `
   );
   return (
-    <Layout>
-      <h1>Hi from the second page</h1>
-      <p>Welcome to page 2</p>
-      <Link to="/">Go back to the homepage</Link>
-
-      <ul className="posts">
-        {data.allContentfulBlogPost.edges.map(edge => {
-          return (
-            <li className="post" key={edge.node.id}>
-              <h2>
-                <Link to={`/blog/${edge.node.slug}/`}>{edge.node.title}</Link>
-              </h2>
-              <div className="meta">
-                <span>Posted on {edge.node.createdAt}</span>
-              </div>
-              {edge.node.featuredImage && (
-                <img src={edge.node.featuredImage.url} alt="img" />
-              )}
-              <p className="excerpt">
-                {edge.node.description.description}
-              </p>
-              <div className="button">
-                <Link to={`/blog/${edge.node.slug}/`}>Read More</Link>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </Layout>
+    <>
+      <Layout>
+        <main>
+          <MainFeaturedPost post={data.allContentfulBlogPost.edges[0]} />
+          <Grid container spacing={4}>
+            {data.allContentfulBlogPost.edges.map((post) => (
+              <Post key={post.title} post={post} />
+            ))}
+          </Grid>
+          <Grid container spacing={5} sx={{ mt: 3 }}>
+            {/*<Main title="From the firehose" posts={posts} />*/}
+          </Grid>
+        </main>
+      </Layout>
+    </>
   );
 };
 

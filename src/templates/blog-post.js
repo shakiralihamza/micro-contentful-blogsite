@@ -1,7 +1,12 @@
+// noinspection GraphQLUnresolvedReference
+
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link as GatsbyLink } from "gatsby";
 import Layout from "../components/layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 export const query = graphql`
     query($slug: String!) {
@@ -18,50 +23,20 @@ export const query = graphql`
     }
 `;
 
-const richTextDocument = {
-  nodeType: "document",
-  data: {},
-  content: [
-    {
-      nodeType: "paragraph",
-      data: {},
-      content: [
-        {
-          nodeType: "text",
-          value: "Hello",
-          data: {},
-          marks: [{ type: "bold" }]
-        },
-        {
-          nodeType: "text",
-          value: " world!",
-          data: {},
-          marks: [{ type: "italic" }]
-        }
-      ]
-    }
-  ]
-};
-function SEO(props) {
-  return null;
-}
-
-SEO.propTypes = {};
 
 function BlogPost(props) {
 
   return (
     <Layout>
-      <SEO title={props.data.contentfulBlogPost.title} />
-      <Link to="/blog/">Visit the Blog Page</Link>
-      <div className="content">
-        <h1>{props.data.contentfulBlogPost.title}</h1>
-        <span className="meta">
+      <Link component={GatsbyLink} to="/blog" sx={{pl:1}}>&#60; Go Back</Link>
+      <div>
+        <Typography variant={'h4'} sx={{py:2}}>{props.data.contentfulBlogPost.title}</Typography>
+        <Box className="meta" component={'i'}>
           Posted on {props.data.contentfulBlogPost.createdAt}
-        </span>
+        </Box>
 
         {props.data.contentfulBlogPost.featuredImage && (
-          <img src={props.data.contentfulBlogPost.featuredImage.url} alt="img" />
+          <img src={props.data.contentfulBlogPost.featuredImage.url} alt="img" style={{width:'100%'}}/>
         )}
       </div>
       <p>{documentToReactComponents(JSON.parse(props.data.contentfulBlogPost.body.raw))}</p>
