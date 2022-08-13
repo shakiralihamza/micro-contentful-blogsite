@@ -6,10 +6,15 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/material": "latest",
     "gatsby": "^4.20.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.20.0",
+    "gatsby-plugin-react-helmet": "^5.20.0",
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-source-contentful": "^7.18.0",
     "gatsby-source-filesystem": "^4.20.0",
@@ -17,7 +22,8 @@
     "gatsby-transformer-sharp": "^4.20.0",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "prettier": "^2.7.1"

@@ -7,6 +7,9 @@ module.exports = {
     author: `@force`,
   },
   plugins: [
+    'gatsby-plugin-top-layout',
+    'gatsby-plugin-mui-emotion',
+    'gatsby-plugin-react-helmet',
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-contentful`,
