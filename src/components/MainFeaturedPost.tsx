@@ -5,20 +5,9 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import { Link as GatsbyLink} from "gatsby";
 import Box from "@mui/material/Box";
+import { PostProps } from "../interfaces";
 
-interface MainFeaturedPostProps {
-  post: {
-    node: {
-      createdAt: string
-      description: { description: string }
-      featuredImage: { url: string }
-      title: string
-      slug: string
-    }
-  };
-}
-
-export default function MainFeaturedPost(props: MainFeaturedPostProps) {
+export default function MainFeaturedPost(props: PostProps) {
   const { post } = props;
 
   return (

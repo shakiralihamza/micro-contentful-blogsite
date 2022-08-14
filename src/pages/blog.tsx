@@ -3,14 +3,13 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-import Seo from "../components/seo";
 import MainFeaturedPost from "../components/MainFeaturedPost";
 import Grid from "@mui/material/Grid";
 import Post from "../components/Post";
 import Layout from "../components/layout";
 
 
-const SecondPage = () => {
+const BlogPage = () => {
   const data = useStaticQuery(
     graphql`
         query {
@@ -40,11 +39,8 @@ const SecondPage = () => {
           <MainFeaturedPost post={data.allContentfulBlogPost.edges[0]} />
           <Grid container spacing={4}>
             {data.allContentfulBlogPost.edges.map((post) => (
-              <Post key={post.title} post={post} />
+              <Post key={post.node.title} post={post} />
             ))}
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            {/*<Main title="From the firehose" posts={posts} />*/}
           </Grid>
         </main>
       </Layout>
@@ -52,6 +48,5 @@ const SecondPage = () => {
   );
 };
 
-export const Head = () => <Seo title="Page two" />;
 
-export default SecondPage;
+export default BlogPage;

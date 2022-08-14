@@ -1,6 +1,6 @@
 // noinspection GraphQLUnresolvedReference
 
-import React from "react";
+import * as React from "react";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import Layout from "../components/layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -28,15 +28,15 @@ function BlogPost(props) {
 
   return (
     <Layout>
-      <Link component={GatsbyLink} to="/blog" sx={{pl:1}}>&#60; Go Back</Link>
+      <Link component={GatsbyLink} to="/blog" sx={{ pl: 1 }}>&#60; Go Back</Link>
       <div>
-        <Typography variant={'h4'} sx={{py:2}}>{props.data.contentfulBlogPost.title}</Typography>
-        <Box className="meta" component={'i'}>
+        <Typography variant={"h4"} sx={{ py: 2 }}>{props.data.contentfulBlogPost.title}</Typography>
+        <Box className="meta" component={"i"}>
           Posted on {props.data.contentfulBlogPost.createdAt}
         </Box>
 
         {props.data.contentfulBlogPost.featuredImage && (
-          <img src={props.data.contentfulBlogPost.featuredImage.url} alt="img" style={{width:'100%'}}/>
+          <img src={props.data.contentfulBlogPost.featuredImage.url} alt="img" style={{ width: "100%" }} />
         )}
       </div>
       <p>{documentToReactComponents(JSON.parse(props.data.contentfulBlogPost.body.raw))}</p>

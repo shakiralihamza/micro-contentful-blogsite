@@ -6,24 +6,9 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "gatsby";
+import { PostProps } from "../interfaces";
 
-interface FeaturedPostProps {
-  post: {
-    node: {
-      createdAt: string;
-      description: {
-        description: string;
-      }
-      featuredImage: {
-        url: string;
-      }
-      title: string;
-      slug: string;
-    }
-  };
-}
-
-export default function Post(props: FeaturedPostProps) {
+export default function Post(props: PostProps) {
   const { post } = props;
 
   return (
