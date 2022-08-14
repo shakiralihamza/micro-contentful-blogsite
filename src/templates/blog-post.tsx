@@ -28,7 +28,7 @@ function BlogPost(props) {
 
   return (
     <Layout>
-      <Link component={GatsbyLink} to="/blog" sx={{ pl: 1 }}>&#60; Go Back</Link>
+      <Link component={GatsbyLink} to="/" sx={{ pl: 1 }}>&#60; Go Back</Link>
       <div>
         <Typography variant={"h4"} sx={{ py: 2 }}>{props.data.contentfulBlogPost.title}</Typography>
         <Box className="meta" component={"i"}>

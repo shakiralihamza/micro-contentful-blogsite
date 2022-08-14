@@ -3,10 +3,10 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-import MainFeaturedPost from "../components/MainFeaturedPost";
+import MainFeaturedPost from "./MainFeaturedPost";
 import Grid from "@mui/material/Grid";
-import Post from "../components/Post";
-import Layout from "../components/layout";
+import Post from "./Post";
+import Layout from "./layout";
 
 
 const BlogPage = () => {
