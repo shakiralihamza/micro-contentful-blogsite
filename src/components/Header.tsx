@@ -3,6 +3,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {Link as GatsbyLink} from 'gatsby';
+import { Box } from "@mui/material";
 
 function Header() {
 
@@ -18,7 +19,8 @@ function Header() {
           noWrap
           sx={{ flex: 1 }}
         >
-          Micro Contentful Blogsite
+          <Box component={'span'} sx={{display: {xs: 'none', sm: 'initial'}}}>Micro Contentful</Box>
+          <Box component={'span'} sx={{fontSize:{xs:'18px', sm:'inherit'}}}>&nbsp;Blogsite</Box>
         </Typography>
         <Button variant="outlined" size="small">Sign in</Button>
       </Toolbar>
