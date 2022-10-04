@@ -9,7 +9,9 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
+    "@mui/icons-material": "^5.10.6",
     "@mui/material": "latest",
+    "firebase": "^9.10.0",
     "gatsby": "^4.20.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.20.0",
@@ -26,6 +28,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@types/firebase": "^3.2.1",
     "prettier": "^2.7.1"
   },
   "keywords": [
