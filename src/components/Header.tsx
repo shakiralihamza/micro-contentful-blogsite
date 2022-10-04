@@ -51,7 +51,7 @@ function Header() {
           </Grid>
           <Grid item xs={"auto"}>
             {
-              currentUser !== null ?
+              currentUser === null ?
                 <Box>
                   <IconButton onClick={handleClick} color={"primary"}>
                     <MoreVertIcon />
